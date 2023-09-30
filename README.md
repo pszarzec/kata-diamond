@@ -2,7 +2,7 @@
 ```
 dotnet run E
 ```
-or you can provider letter after program starts:
+or you can provider letter(size of a diamond) when you start the programme:
 ```
 dotnet run
 ```
