@@ -18,6 +18,7 @@ if (args.Any())
 else
 {
     inputSize = Console.ReadKey().KeyChar;
+    Console.WriteLine();
 }
 
 var diamondSize = new DiamondSize(inputSize);

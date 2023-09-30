@@ -4,8 +4,6 @@ namespace KataDiamond.UnitTests;
 
 public class DiamondTests
 {
-    private const char SpaceChar = ' ';
-        
     [Fact]
     public void BuildWithSize_SpecificSize_CreatesValidDiamond()
     {
@@ -13,12 +11,13 @@ public class DiamondTests
         
         var diamond = Diamond.BuildWithSize(diamondSize);
 
+        const char space = StringExtensions.WhiteSpace;
         var expectedBody =
-            $"{SpaceChar}{SpaceChar}A{SpaceChar}{SpaceChar}{Environment.NewLine}" +
-            $"{SpaceChar}B{SpaceChar}{SpaceChar}B{SpaceChar}{Environment.NewLine}" +
-            $"C{SpaceChar}{SpaceChar}{SpaceChar}{SpaceChar}C{Environment.NewLine}" +
-            $"{SpaceChar}B{SpaceChar}{SpaceChar}B{SpaceChar}{Environment.NewLine}" +
-            $"{SpaceChar}{SpaceChar}A{SpaceChar}{SpaceChar}{Environment.NewLine}";
+            $"{space}{space}A{space}{space}{Environment.NewLine}" +
+            $"{space}B{space}B{space}{Environment.NewLine}" +
+            $"C{space}{space}{space}C{Environment.NewLine}" +
+            $"{space}B{space}B{space}{Environment.NewLine}" +
+            $"{space}{space}A{space}{space}";
         
         Assert.Equal(expectedBody, diamond.Body);
     }
@@ -102,8 +101,8 @@ public class DiamondTests
         
         var diamond = Diamond.BuildWithSize(diamondSize);
 
-        const string correctOrder = "ABCDEDCBA";
-        var actualOrder = diamond.Body.TrimNewLines().Trim();
+        const string correctOrder = "ABBCCDDEEDDCCBBA";
+        var actualOrder = diamond.Body.TrimNewLines().TrimAllWhiteCharacters();
         
         Assert.Equal(correctOrder, actualOrder);
     }
@@ -116,6 +115,6 @@ public class DiamondTests
         var diamond = Diamond.BuildWithSize(diamondSize);
 
         var diamondSegments = diamond.Body.AllLines();
-        Assert.All(diamondSegments, segment => Assert.Contains(SpaceChar, segment));
+        Assert.All(diamondSegments, segment => Assert.Contains(StringExtensions.WhiteSpace, segment));
     }
 }
