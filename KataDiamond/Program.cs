@@ -4,7 +4,7 @@ char inputSize;
 
 if (args.Any())
 {
-    var argument = args.FirstOrDefault();
+    string? argument = args.FirstOrDefault();
     if (argument?.Length == 1)
     {
         inputSize = argument.First();

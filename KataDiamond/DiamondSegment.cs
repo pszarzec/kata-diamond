@@ -33,7 +33,7 @@ public class DiamondSegment
         // Segment character
         _body.Append(segmentLetter);
 
-        if (IsMiddleSegment(segmentLetter))
+        if (IsSegmentBetweenApexes(segmentLetter))
         {
             // Inner
             AddFilling(InnerFillingSize(segmentLetter));
@@ -49,7 +49,11 @@ public class DiamondSegment
         _body.Append(new string(_filling, padding));
     }
 
-    private bool IsMiddleSegment(char letter) => letter != 'A';
+    private bool IsSegmentBetweenApexes(char letter) => letter != 'A';
     
-    private int InnerFillingSize(char letter) => (letter - 'A') * 2 - 1;
+    private int InnerFillingSize(char letter)
+    {
+        const int innerSpaceMultiplier = 2;
+        return (letter - 'A') * innerSpaceMultiplier - 1;
+    }
 }

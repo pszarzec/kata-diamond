@@ -1,12 +1,21 @@
-## How to
+# Description
+Printing a diamond from letters, given letter is a middle char of diamond.
+```
+  A
+ B B
+C   C
+ B B
+  A
+```
+# How to
 ```
 dotnet run E
 ```
-or you can provider letter(size of a diamond) when you start the programme:
+You can also provider a letter(size of a diamond) when you start the program:
 ```
 dotnet run
 ```
-## Requirements
+# Requirements
 ```
 .NET 6.0.403
 ```
